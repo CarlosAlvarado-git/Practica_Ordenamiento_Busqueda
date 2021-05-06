@@ -1,0 +1,41 @@
+Ordenamiento Bubble Sort: El ordenamiento funciona con el fin de encontrar el valor más grande o más pequeño del array y colocarlo en la última posición del mismo.
+    luego repetir el mismo procedimiento evitando caer en la última posición ya que esta ya está ocupada por el más grande o más pequeño según el caso que se realizará.
+Ventajas: 
+  Fácil implementación.
+  No requiere memoria adicional.
+Desventajas:
+  Muy lento.
+  Realiza numerosas comparaciones.
+  Realiza numerosos intercambios.
+Aplicaciones: 
+  * un ejemplo interesente es ordenamiento de prioridades, con este método puedes ordenar la prioridades de la lista de compras, tareas, etc. 
+  * otro ejemplo es el ordenamiento de zapatos o palos o cualquier objeto que tenga un tamaño diferente y quieras ordenarlos de alguna manera. 
+Pseudocódigo: 
+  procedure bubbleSort( list : array of items )
+
+   loop = list.count;
+   
+   for i = 0 to loop-1 do:
+      swapped = false
+		
+      for j = 0 to loop-1 do:
+      
+         /* compare the adjacent elements */   
+         if list[j] > list[j+1] then
+            /* swap them */
+            swap( list[j], list[j+1] )		 
+            swapped = true
+         end if
+         
+      end for
+      
+      /*if no number was swapped that means 
+      array is sorted now, break the loop.*/
+      
+      if(not swapped) then
+         break
+      end if
+      
+   end for
+   
+end procedure return list
