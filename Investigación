@@ -4,6 +4,7 @@ Ventajas:
   Fácil implementación.
   No requiere memoria adicional.
 Desventajas:
+  O(Log(n))
   Muy lento.
   Realiza numerosas comparaciones.
   Realiza numerosos intercambios.
@@ -40,3 +41,50 @@ Pseudocódigo:
    
 end procedure return list
 https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm
+
+------------------------------------------------------------------------------------
+
+Busqueda Binary Search: Esta búsqueda lo que busca es reducir el tiempo en el que se busca un número en el array y la manera en el que lo logra es: primero escoge
+	tres posiciones del array, en la primera posicioón, última posición y en medio del array. Se debe aclarar que para que esta búesqueda primero se debe implementar
+	un ordenamiento del array, para que sea posible la búsqueda. Por qué debemos tenerlo ordenado? porque la búsqueda agarra secciones del array y en esas secciones se 
+	toman como "rangos" de números con el finde de que se detencte en que posición esta el número a buscar. 
+	Entonces, se pregunta si el numero a buscar es alguno de los límites, primero, medio o último. Si no es ninguno de los casos se busca en que rando esta, si 
+	está entre el primero y medio, se cambia los límites de que el del medio se vuelve el último y se obtiene un nuevo medio, si el caso es que sea entre medio y último
+	el medio se vuelve el primero y se calcula otro medio. 
+	Este proceso hasta que alguno de los 3 sea igual al número buscado, si ya solo hay 3 número en esa sección de números y ninguno es el que se busca, se dice que 
+	no esta el número en el array. 
+Ventajas:
+	* espacio requerido para una búsqueda es O(1) y su pero caso es O(Log(n))
+	* Se puede aplicar tanto a datos en listas lineales como en árboles binarios de búsqueda.
+	* Es el método más eficiente para encontrar elementos en un arreglo ordenado.
+Desventaja:
+	* Este método funciona solamente con arreglos ordenados, por lo cual si nos encontramos con arreglos que no están en orden, 
+	   este método, no nos ayudaría en nada.
+Aplicaciones: 
+	*  Búsqueda de un valor en una secuencia de números. 
+Pseudocódigo:
+Procedure binary_search
+   A ← sorted array
+   n ← size of array
+   x ← value to be searched
+
+   Set lowerBound = 1
+   Set upperBound = n 
+
+   while x not found
+      if upperBound < lowerBound 
+         EXIT: x does not exists.
+   
+      set midPoint = lowerBound + ( upperBound - lowerBound ) / 2
+      
+      if A[midPoint] < x
+         set lowerBound = midPoint + 1
+         
+      if A[midPoint] > x
+         set upperBound = midPoint - 1 
+
+      if A[midPoint] = x 
+         EXIT: x found at location midPoint
+   end while
+   
+end procedure
